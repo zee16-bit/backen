@@ -1,11 +1,26 @@
 const express = require("express")
 const route = express.Router()
-const { registerUser, signIn, getDashboard, uploadProperty, getAllProperties, upload} = require("../controller/user.controller")
+const { registerUser, signIn, getDashboard, uploadProperty, getAllProperties, upload, sendMail, saveProfileimage, getProduct, sellProperty, getData, deleteProperty, deleteAcct, filterArray, editEmail, editPhone, editFirst, editLast, changePassword} = require("../controller/user.controller")
 
 route.post("/register",registerUser )
 route.post("/signin" ,signIn)
 route.post("/image",upload)
 route.get("/dashboard", getDashboard)
+route.post("/profileImage/:id", saveProfileimage)
 route.post("/upload/:id", uploadProperty)
 route.get("/allproperty", getAllProperties)
+route.get("/product/:id", getProduct)
+route.post("/mailer/:id", sendMail)
+route.post("/sellproperty/:id",sellProperty)
+route.get("/data/:id", getData)
+route.get("/deleteproperty/:id", deleteProperty)
+route.get("/deleteAcct/:id", deleteAcct)
+route.post("/filter", filterArray)
+route.post("/editemail", editEmail)
+route.post("/editphone", editPhone)
+route.post("/editfirst", editFirst)
+route.post("/editlast", editLast)
+route.post("/changepassword/:id", changePassword)
+
+
 module.exports = route
